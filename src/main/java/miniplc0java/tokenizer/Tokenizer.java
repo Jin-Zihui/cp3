@@ -81,29 +81,26 @@ public class Tokenizer {
         }
         String strr = str.toString();
         Token token = new Token(null, strr, startPos, it.currentPos());
-        switch(strr) {
             if(strr.equals("begin")){
                 token.setTokenType(TokenType.Begin);
-                break;
+
             }
             else if(strr.equals("end")){
                 token.setTokenType(TokenType.End);
-                break;
+
             }
-            else if(strr.equals("const"){
+            else if(strr.equals("const")){
                 token.setTokenType(TokenType.Const);
-                break;
+
             }
-            else if(strr.equals("var"){
+            else if(strr.equals("var")){
                 token.setTokenType(TokenType.Var);
-                break;
             }
-            else if(strr.equals("print"){
+            else if(strr.equals("print")){
                 token.setTokenType(TokenType.Print);
-                break;
             }
             else token.setTokenType(TokenType.Ident);
-        }
+
         return token;
 //        throw new Error("Not implemented");
     }
@@ -120,26 +117,26 @@ public class Tokenizer {
 
             case '*':
                 // 填入返回语句
-                Token token =  new Token(TokenType.Mult, '*', it.previousPos(), it.currentPos());
-                return token;
+                Token token2 =  new Token(TokenType.Mult, '*', it.previousPos(), it.currentPos());
+                return token2;
 
             case '/':
                 // 填入返回语句
-                Token token = new Token(TokenType.Div, '/', it.previousPos(), it.currentPos());
-                return token;
+                Token token3 = new Token(TokenType.Div, '/', it.previousPos(), it.currentPos());
+                return token3;
                 // 填入更多状态和返回语句
             case '=':
-                Token token =  new Token(TokenType.Equal, '=', it.previousPos(), it.currentPos());
-                return token;
+                Token token4 =  new Token(TokenType.Equal, '=', it.previousPos(), it.currentPos());
+                return token4;
             case ';':
-                Token token =  new Token(TokenType.Semicolon, ';', it.previousPos(), it.currentPos());
-                return token;
+                Token token5 =  new Token(TokenType.Semicolon, ';', it.previousPos(), it.currentPos());
+                return token5;
             case '(':
-                Token token =  new Token(TokenType.LParen, '(', it.previousPos(), it.currentPos());
-                return token;
+                Token token6 =  new Token(TokenType.LParen, '(', it.previousPos(), it.currentPos());
+                return token6;
             case ')':
-                Token token =  new Token(TokenType.RParen, ')', it.previousPos(), it.currentPos());
-                return token;
+                Token token7 =  new Token(TokenType.RParen, ')', it.previousPos(), it.currentPos());
+                return token7;
             default:
                 // 不认识这个输入，摸了
                 throw new TokenizeError(ErrorCode.InvalidInput, it.previousPos());
